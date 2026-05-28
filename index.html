@@ -1,1 +1,1322 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzAwNjFFMCIvPgogIDxnIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSI+CiAgICA8IS0tIE1haW4gY3Jvc3MgLS0+CiAgICA8bGluZSB4MT0iMTYiIHkxPSI0IiB4Mj0iMTYiIHkyPSIyOCIvPgogICAgPGxpbmUgeDE9IjQiIHkxPSIxNiIgeDI9IjI4IiB5Mj0iMTYiLz4KICAgIDwhLS0gRGlhZ29uYWxzIC0tPgogICAgPGxpbmUgeDE9IjcuNSIgeTE9IjcuNSIgeDI9IjI0LjUiIHkyPSIyNC41Ii8+CiAgICA8bGluZSB4MT0iMjQuNSIgeTE9IjcuNSIgeDI9IjcuNSIgeTI9IjI0LjUiLz4KICAgIDwhLS0gQnJhbmNoZXMgb24gdmVydGljYWwgLS0+CiAgICA8bGluZSB4MT0iMTYiIHkxPSI5IiAgeDI9IjEzIiB5Mj0iNiIvPgogICAgPGxpbmUgeDE9IjE2IiB5MT0iOSIgIHgyPSIxOSIgeTI9IjYiLz4KICAgIDxsaW5lIHgxPSIxNiIgeTE9IjIzIiB4Mj0iMTMiIHkyPSIyNiIvPgogICAgPGxpbmUgeDE9IjE2IiB5MT0iMjMiIHgyPSIxOSIgeTI9IjI2Ii8+CiAgICA8IS0tIEJyYW5jaGVzIG9uIGhvcml6b250YWwgLS0+CiAgICA8bGluZSB4MT0iOSIgIHkxPSIxNiIgeDI9IjYiICB5Mj0iMTMiLz4KICAgIDxsaW5lIHgxPSI5IiAgeTE9IjE2IiB4Mj0iNiIgIHkyPSIxOSIvPgogICAgPGxpbmUgeDE9IjIzIiB5MT0iMTYiIHgyPSIyNiIgeTI9IjEzIi8+CiAgICA8bGluZSB4MT0iMjMiIHkxPSIxNiIgeDI9IjI2IiB5Mj0iMTkiLz4KICA8L2c+CiAgPCEtLSBDZW50ZXIgZG90IC0tPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjIuMiIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4="/>
 
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Inter-Klimat — Кондиціонер без складного вибору</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0061E0;--blue-lt:#3A8EFF;--blue-pale:#C8E2FF;--blue-mist:#DFF0FF;
+  --dark:#0D1E30;--mid:#2D4A63;--soft:#5A7A96;
+  --bg:#EEF7FF;--bg2:#F4FAFF;--white:#fff;--border:#D0E5F5;
+  --sh:0 8px 32px rgba(0,70,160,.09);--sh-lg:0 16px 48px rgba(0,70,160,.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(160deg,#d8eeff 0%,#eef7ff 35%,#f6fbff 65%,#e6f3ff 100%)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 56px;
+  background:rgba(238,247,255,.84);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(208,229,245,.5);animation:fadeDown .55s ease both}
+.logo{font-family:'Geologica',sans-serif;font-weight:700;font-size:17px;
+  color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:34px;height:34px;border-radius:9px;background:var(--blue);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,97,224,.4)}
+.logo-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-btn{background:var(--blue)!important;color:#fff!important;padding:10px 22px;border-radius:50px;
+  font-weight:700!important;box-shadow:0 4px 16px rgba(0,97,224,.35);transition:background .2s,transform .2s!important}
+.nav-btn:hover{background:var(--blue-lt)!important;transform:translateY(-1px)}
+
+/* SHARED */
+.section{padding:96px 56px;max-width:1200px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:7px;
+  background:var(--blue-mist);border:1px solid var(--blue-pale);border-radius:50px;
+  padding:5px 16px 5px 11px;font-size:11px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+h2{font-family:'Geologica',sans-serif;font-size:clamp(30px,3vw,46px);font-weight:800;
+  letter-spacing:-1.5px;line-height:1.1;color:var(--dark);margin-bottom:14px}
+h2 em{font-style:normal;color:var(--blue)}
+.lead{font-size:16.5px;line-height:1.65;color:var(--mid);max-width:580px;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;
+  font-family:'Geologica',sans-serif;font-weight:700;font-size:14.5px;
+  letter-spacing:-.1px;text-decoration:none;transition:all .25s;border-radius:50px}
+.btn-blue{background:var(--blue);color:#fff;padding:14px 28px;box-shadow:0 6px 20px rgba(0,97,224,.35)}
+.btn-blue:hover{background:var(--blue-lt);transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,97,224,.42)}
+.btn-blue svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5}
+.btn-outline{background:rgba(0,97,224,.07);color:var(--blue);border:1.5px solid var(--blue-pale)!important;padding:13px 26px}
+.btn-outline:hover{background:rgba(0,97,224,.13);transform:translateY(-1px)}
+.btn-sm{padding:10px 20px;font-size:13px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── HERO ─────────────────────────────── */
+.hero{position:relative;width:100%;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;padding:68px 24px 0}
+.hero-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;transition:opacity .5s}
+.hero-overlay{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(4,12,26,.70) 0%,rgba(4,12,26,.18) 26%,
+    rgba(4,12,26,.20) 56%,rgba(4,12,26,.62) 100%)}
+.hero-content{position:relative;z-index:10;display:flex;flex-direction:column;
+  align-items:center;text-align:center;max-width:820px;padding:80px 0 0;
+  animation:fadeUp .9s .1s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(10px);border-radius:50px;padding:6px 18px 6px 12px;
+  font-size:11px;font-weight:700;letter-spacing:.45px;text-transform:uppercase;
+  color:rgba(255,255,255,.92);margin-bottom:28px}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;
+  box-shadow:0 0 8px #4ADE80;animation:pulse 2.2s ease infinite}
+.hero h1{font-family:'Geologica',sans-serif;font-size:clamp(42px,5.5vw,76px);
+  font-weight:800;letter-spacing:-2.5px;line-height:1.05;color:#fff;margin-bottom:22px}
+.hero h1 em{font-style:italic;font-weight:300;color:rgba(255,255,255,.80)}
+.hero-sub{font-size:17px;line-height:1.65;color:rgba(255,255,255,.70);max-width:540px;margin-bottom:36px}
+.hero-sub strong{color:#fff;font-weight:600}
+.hero-actions{display:flex;align-items:center;gap:14px;margin-bottom:52px}
+.btn-hero-main{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;
+  padding:16px 34px;border-radius:50px;border:none;cursor:pointer;
+  font-family:'Geologica',sans-serif;font-size:15px;font-weight:700;
+  text-decoration:none;box-shadow:0 6px 28px rgba(0,97,224,.5);transition:all .25s}
+.btn-hero-main:hover{background:var(--blue-lt);transform:translateY(-2px);
+  box-shadow:0 14px 36px rgba(0,97,224,.55)}
+.btn-hero-main svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5}
+.btn-hero-ghost{display:inline-flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(8px);color:rgba(255,255,255,.88);
+  padding:15px 30px;border-radius:50px;font-size:14.5px;font-weight:600;
+  text-decoration:none;transition:all .2s}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.44);color:#fff}
+.btn-hero-ghost svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* FLOATING CARDS */
+.fc{position:absolute;z-index:20;
+  background:rgba(186,224,255,0.28);
+  border:1px solid rgba(186,224,255,0.50);
+  border-radius:50px;
+  box-shadow:0 4px 18px rgba(0,90,200,.14),inset 0 1px 0 rgba(255,255,255,.35);
+  padding:10px 18px 10px 12px;
+  display:flex;align-items:center;gap:12px;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  animation:floatIn .8s ease both}
+.fc-1{top:130px;right:52px;animation-delay:.9s}
+.fc-2{top:50%;right:40px;transform:translateY(-50%);animation-delay:1.1s}
+.fc-3{bottom:42%;left:48px;animation-delay:1.3s}
+.fc-icon{width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.ic-blue{background:rgba(180,220,255,.25);border:1px solid rgba(180,220,255,.35)}.ic-green{background:rgba(160,240,200,.25);border:1px solid rgba(160,240,200,.35)}.ic-amber{background:rgba(255,220,150,.25);border:1px solid rgba(255,220,150,.35)}
+.fc-icon svg{width:19px;height:19px}
+.fc-t{font-family:'Geologica',sans-serif;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;text-shadow:0 1px 4px rgba(0,60,140,.3)}
+.fc-s{font-size:11px;font-weight:500;color:rgba(220,240,255,.85);white-space:nowrap}
+
+/* ROOM PILLS — no bg on icon */
+.hero-pills{position:relative;z-index:10;display:flex;gap:9px;flex-wrap:wrap;
+  justify-content:center;animation:fadeUp .8s .45s ease both}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.20);
+  backdrop-filter:blur(10px);border-radius:50px;padding:9px 18px 9px 12px;
+  font-size:12.5px;font-weight:700;color:rgba(255,255,255,.85);cursor:pointer;transition:all .2s}
+.hero-pill:hover,.hero-pill.on{background:rgba(0,97,224,.7);border-color:rgba(0,97,224,.8);
+  color:#fff;box-shadow:0 4px 18px rgba(0,97,224,.45)}
+/* pill icon — transparent bg, bigger */
+.pill-icon{width:32px;height:32px;object-fit:contain;flex-shrink:0}
+
+/* HERO SPACER */
+.hero-spacer{height:40px;position:relative;z-index:10}
+
+/* HERO STATS — 3 separate dark glass cards */
+.hero-stats{position:relative;z-index:10;width:100%;max-width:820px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  margin-bottom:40px;animation:fadeUp .9s .6s ease both}
+.h-stat{height:88px;display:flex;align-items:center;gap:12px;padding:0 18px;
+  background:rgba(12,24,44,.42);backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.18);border-radius:24px;
+  transition:background .2s,transform .2s}
+.h-stat:hover{background:rgba(12,24,44,.58);transform:translateY(-2px);
+  box-shadow:0 0 22px rgba(0,97,224,.18)}
+/* icon — no bg, just the neon PNG */
+.h-icon{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.h-icon img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(58,162,255,.45))}
+.h-body{display:flex;flex-direction:column;gap:2px}
+.h-num{font-family:'Geologica',sans-serif;font-size:22px;font-weight:800;
+  letter-spacing:-.8px;color:#fff;line-height:1}
+.h-num span{color:#7BC8FF}
+.h-lbl{font-size:12.5px;font-weight:500;color:rgba(255,255,255,.66);line-height:1.3}
+
+/* ─── SELECTOR ──────────────────────────── */
+.selector-outer{padding:60px 56px 96px;max-width:1248px;margin:0 auto}
+.selector-glass{padding:40px 48px;border-radius:28px;
+  background:rgba(255,255,255,.76);backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.86);box-shadow:var(--sh-lg)}
+.selector-title{font-family:'Geologica',sans-serif;font-size:22px;font-weight:700;
+  letter-spacing:-.5px;color:var(--dark);margin-bottom:8px}
+.selector-sub{font-size:14px;color:var(--soft);margin-bottom:28px}
+.selector-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.sel-group{display:flex;flex-direction:column;gap:7px;flex:1;min-width:150px}
+.sel-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  color:var(--soft);display:flex;align-items:center;gap:6px}
+.sel-label svg{width:13px;height:13px;stroke:var(--blue);fill:none;stroke-width:2}
+.sel-select{appearance:none;background:var(--bg2);border:1.5px solid var(--border);
+  border-radius:14px;padding:12px 18px;font-family:'Manrope',sans-serif;
+  font-size:14px;font-weight:500;color:var(--dark);outline:none;cursor:pointer;transition:border-color .2s}
+.sel-select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,97,224,.10)}
+.sel-hint{background:var(--blue-mist);border:1px solid var(--blue-pale);border-radius:12px;
+  padding:10px 16px;font-size:12.5px;color:var(--mid);margin-top:20px;
+  display:flex;align-items:flex-start;gap:9px}
+.sel-hint svg{width:15px;height:15px;stroke:var(--blue);fill:none;stroke-width:2;flex-shrink:0;margin-top:1px}
+
+/* ─── SCENARIOS — 2/3 + 1/3 ────────────── */
+.sc-row-top{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:14px}
+.sc-row-bot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+/* all cards same height */
+.sc-row-top .sc-card,.sc-row-bot .sc-card{aspect-ratio:16/9}
+.sc-card{position:relative;border-radius:22px;overflow:hidden;cursor:pointer;
+  transition:transform .3s,box-shadow .3s}
+.sc-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.sc-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.sc-card:hover .sc-img{transform:scale(1.04)}
+.sc-overlay{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,14,28,.84) 0%,rgba(5,14,28,.06) 52%,transparent 100%)}
+.sc-body{position:absolute;bottom:0;left:0;right:0;padding:20px}
+.sc-tag{display:inline-block;
+  background:rgba(186,220,255,0.30);
+  border:1px solid rgba(186,220,255,0.50);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-radius:50px;padding:5px 14px;
+  font-size:11px;font-weight:700;
+  color:#fff;
+  letter-spacing:.2px;
+  margin-bottom:7px;
+  box-shadow:0 2px 8px rgba(0,80,180,.12)}
+.sc-name{font-family:'Geologica',sans-serif;font-size:18px;font-weight:700;color:#fff;
+  margin-bottom:5px;letter-spacing:-.2px}
+.sc-desc{font-size:12.5px;color:rgba(255,255,255,.68);line-height:1.45;margin-bottom:12px}
+.sc-btn{display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(8px);border-radius:50px;padding:7px 16px;
+  font-size:12px;font-weight:700;color:#fff;text-decoration:none;transition:all .2s}
+.sc-btn:hover{background:var(--blue);border-color:var(--blue)}
+.sc-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5}
+/* larger text on big card */
+.sc-row-top .sc-card:first-child .sc-name{font-size:22px}
+.sc-row-top .sc-card:first-child .sc-desc{font-size:13.5px}
+
+/* ─── STEPS — horizontal timeline ──────── */
+.steps-container{background:rgba(255,255,255,.72);backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.86);border-radius:28px;
+  box-shadow:var(--sh);padding:44px 48px}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.steps-row::before{content:'';position:absolute;top:44px;left:12.5%;right:12.5%;height:1px;
+  background:linear-gradient(90deg,var(--blue-pale),var(--blue),var(--blue-pale));
+  opacity:.45;z-index:0}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:0 16px;position:relative;z-index:1}
+.step-num{font-family:'Geologica',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.4px;color:var(--blue);margin-bottom:10px;
+  background:var(--blue-mist);border:1px solid var(--blue-pale);
+  border-radius:50px;padding:3px 10px}
+.step-circle{width:88px;height:88px;border-radius:50%;
+  background:linear-gradient(135deg,#0A1830,#0D2050);
+  border:2px solid rgba(58,142,255,.4);
+  box-shadow:0 0 20px rgba(0,97,224,.25),inset 0 0 12px rgba(0,97,224,.1);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.step-circle img{width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(58,162,255,.5))}
+.step-title{font-family:'Geologica',sans-serif;font-size:16px;font-weight:700;
+  color:var(--dark);letter-spacing:-.2px;margin-bottom:8px;line-height:1.3}
+.step-desc{font-size:13px;color:var(--mid);line-height:1.55}
+
+/* ─── POPULAR ───────────────────────────── */
+.popular-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pop-card{border-radius:22px;overflow:hidden;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.84);box-shadow:var(--sh);
+  transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.pop-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.pop-photo{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.pop-body{padding:20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pop-badge{display:inline-block;background:var(--blue-mist);border:1px solid var(--blue-pale);
+  border-radius:50px;padding:3px 12px;font-size:11px;font-weight:700;color:var(--blue)}
+.pop-title{font-family:'Geologica',sans-serif;font-size:15px;font-weight:700;
+  color:var(--dark);letter-spacing:-.2px;line-height:1.3}
+.pop-desc{font-size:13px;color:var(--soft);line-height:1.5;flex:1}
+.pop-btn{margin-top:8px}
+
+/* ─── FEAR — light Image-10 style ──────── */
+.fear-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fear-card{padding:28px 28px 28px 28px;border-radius:20px;
+  background:#fff;
+  border:1px solid #E8F2FD;
+  box-shadow:0 2px 14px rgba(0,70,160,.07),0 1px 3px rgba(0,70,160,.04);
+  display:flex;flex-direction:column;gap:14px;position:relative;
+  transition:transform .3s,box-shadow .3s}
+.fear-card:hover{transform:translateY(-3px);
+  box-shadow:0 8px 28px rgba(0,70,160,.11),0 2px 6px rgba(0,70,160,.06)}
+.fear-card-top{display:flex;align-items:center;justify-content:space-between}
+.fear-icon{width:50px;height:50px;border-radius:14px;
+  background:#EEF5FF;border:1px solid #DDE9F8;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fear-icon svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8}
+.fear-num{font-family:'Geologica',sans-serif;font-size:22px;font-weight:800;
+  letter-spacing:-1px;color:#D8E8F5;line-height:1;user-select:none}
+.fear-title{font-family:'Geologica',sans-serif;font-size:16px;font-weight:700;
+  color:var(--dark);letter-spacing:-.2px;line-height:1.3}
+.fear-desc{font-size:13.5px;color:var(--mid);line-height:1.55}
+
+/* ─── FAQ ───────────────────────────────── */
+.faq-list{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
+.faq-item{border-radius:18px;overflow:hidden;
+  background:rgba(255,255,255,.70);backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.84);box-shadow:var(--sh)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;
+  padding:22px 28px;cursor:pointer;gap:16px;
+  font-family:'Geologica',sans-serif;font-size:16px;font-weight:600;
+  color:var(--dark);user-select:none;transition:background .2s}
+.faq-q:hover{background:rgba(0,97,224,.04)}
+.faq-q.open{color:var(--blue)}
+.faq-icon{width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:var(--blue-mist);border:1px solid var(--blue-pale);
+  display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s}
+.faq-q.open .faq-icon{background:var(--blue);transform:rotate(45deg)}
+.faq-icon svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:2.5}
+.faq-q.open .faq-icon svg{stroke:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a.open{max-height:300px}
+.faq-a-inner{padding:0 28px 22px;font-size:15px;color:var(--mid);line-height:1.65}
+
+/* ─── CTA ───────────────────────────────── */
+.cta-section{padding:96px 56px;background:linear-gradient(135deg,#003DB5 0%,#0055CC 40%,#1472F0 100%);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 75% at 72% 50%,rgba(255,255,255,.07) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 60% at 18% 80%,rgba(0,180,255,.10) 0%,transparent 55%)}
+.cta-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.cta-text .section-tag{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.28);color:#fff}
+.cta-text .tag-dot{background:#4ADE80}
+.cta-text h2{color:#fff;margin-bottom:16px}
+.cta-text p{font-size:16px;color:rgba(255,255,255,.72);line-height:1.65;max-width:420px}
+.cta-form{background:rgba(255,255,255,.11);backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.20);border-radius:28px;padding:36px 40px}
+.form-title{font-family:'Geologica',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:24px}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.form-label{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.60)}
+.form-input{background:rgba(255,255,255,.11);border:1.5px solid rgba(255,255,255,.20);
+  border-radius:14px;padding:13px 18px;font-family:'Manrope',sans-serif;font-size:14px;
+  color:#fff;outline:none;transition:border-color .2s}
+.form-input::placeholder{color:rgba(255,255,255,.35)}
+.form-input:focus{border-color:rgba(255,255,255,.50);background:rgba(255,255,255,.18)}
+.btn-submit{width:100%;background:#fff;color:var(--blue);border:none;border-radius:50px;
+  padding:16px 28px;margin-top:8px;font-family:'Geologica',sans-serif;
+  font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.15);transition:all .25s}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.form-note{font-size:12px;color:rgba(255,255,255,.46);text-align:center;margin-top:12px;line-height:1.5}
+
+footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(10px);
+  border-top:1px solid var(--border);display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:13px;color:var(--soft)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:var(--soft);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--blue)}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatIn{from{opacity:0;transform:scale(.88) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+
+@media(max-width:1024px){
+  .section,.selector-outer{padding-left:28px;padding-right:28px}
+  .sc-row-top{grid-template-columns:1fr 1fr}
+  .sc-row-bot{grid-template-columns:1fr 1fr}
+  .sc-row-bot .sc-card:last-child{display:none}
+  .steps-row{grid-template-columns:repeat(2,1fr);gap:32px}
+  .steps-container::before{display:none}
+  .popular-grid{grid-template-columns:repeat(2,1fr)}
+  .fear-grid{grid-template-columns:repeat(2,1fr)}
+  .cta-inner{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero h1{font-size:38px;letter-spacing:-1.5px}
+  .hero-stats{grid-template-columns:1fr;max-width:400px}
+  .hero-actions{flex-direction:column;width:100%}
+  .btn-hero-main,.btn-hero-ghost{width:100%;justify-content:center}
+  .fc-1,.fc-2,.fc-3{display:none}
+  .sc-row-top,.sc-row-bot,.steps-row,.popular-grid,.fear-grid{grid-template-columns:1fr}
+  .sc-row-bot .sc-card:last-child{display:block}
+  .cta-section{padding:64px 24px}
+  footer{padding:24px;flex-direction:column;text-align:center}
+}
+
+/* Panoramic scenario card */
+.sc-panoramic{aspect-ratio:21/7!important;border-radius:22px}
+.sc-overlay-left{background:linear-gradient(to right,rgba(5,14,28,.85) 0%,rgba(5,14,28,.55) 35%,rgba(5,14,28,.1) 60%,transparent 100%)!important}
+.sc-body-wide{left:0;right:auto;width:42%;max-width:480px;padding:32px 40px}
+.sc-body-wide .sc-name{font-size:26px!important;letter-spacing:-.5px}
+.sc-body-wide .sc-desc-wide{font-size:14.5px;color:rgba(255,255,255,.75);line-height:1.55;max-width:360px;margin-bottom:20px}
+
+/* Scenarios 2-row: equal top pair + 4-col bottom */
+.sc-row-top { grid-template-columns: 1fr 1fr !important; }
+.sc-row-top .sc-card { aspect-ratio: 16/10 !important; }
+.sc-row-bot4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.sc-row-bot4 .sc-card { aspect-ratio: 4/3; }
+/* remove panoramic override */
+.sc-panoramic { aspect-ratio: 4/3 !important; }
+.sc-overlay-left { background: linear-gradient(to top,rgba(5,14,28,.84) 0%,rgba(5,14,28,.06) 52%,transparent 100%) !important; }
+.sc-body-wide { left: 0 !important; right: 0 !important; width: auto !important; max-width: none !important; padding: 20px !important; }
+.sc-body-wide .sc-name { font-size: 18px !important; }
+.sc-body-wide .sc-desc-wide { font-size: 12.5px !important; max-width: none !important; margin-bottom: 12px !important; }
+@media(max-width:1024px){
+  .sc-row-bot4 { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:768px){
+  .sc-row-bot4 { grid-template-columns: 1fr; }
+  .sc-row-top { grid-template-columns: 1fr !important; }
+}
+
+
+/* SCENARIOS — full bleed 3x2 grid */
+.sc-full{width:100%;padding:96px 0;background:transparent}
+.sc-full-head{padding:0 56px;max-width:1400px;margin:0 auto 48px}
+.sc-grid-3x2{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  width:100%;
+  padding:0 12px;
+}
+.sc-grid-3x2 .sc-card{
+  aspect-ratio:16/10;
+  border-radius:16px;
+}
+/* round corners only on edge cards */
+
+
+
+
+/* body padding for full-bleed cards */
+.sc-grid-3x2 .sc-body{padding:24px 28px}
+.sc-grid-3x2 .sc-name{font-size:20px!important}
+.sc-grid-3x2 .sc-desc{font-size:13px!important}
+@media(max-width:1024px){
+  .sc-grid-3x2{grid-template-columns:repeat(2,1fr)}
+  
+  .sc-grid-3x2 .sc-card:nth-child(2){border-radius:0 20px 0 0}
+  .sc-grid-3x2 .sc-card:nth-child(n){border-radius:0}
+}
+@media(max-width:640px){
+  .sc-grid-3x2{grid-template-columns:1fr;gap:3px}
+  .sc-full-head{padding:0 24px}
+}
+
+
+#steps.section { max-width: 1248px; }
+
+
+/* ── STEPS animations ────────────────────────────────── */
+
+/* Staggered fade-up for each step on scroll */
+#steps .step {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+#steps.visible .step:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
+#steps.visible .step:nth-child(2) { opacity:1; transform:none; transition-delay:.25s; }
+#steps.visible .step:nth-child(3) { opacity:1; transform:none; transition-delay:.45s; }
+#steps.visible .step:nth-child(4) { opacity:1; transform:none; transition-delay:.65s; }
+
+/* Connecting line draws from left to right */
+.steps-row::before {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.1s .15s cubic-bezier(.4,0,.2,1);
+}
+#steps.visible .steps-row::before { transform: scaleX(1); }
+
+/* Step circles — persistent soft pulse glow */
+@keyframes circleGlow {
+  0%,100% { box-shadow: 0 0 18px rgba(0,97,224,.22), inset 0 0 10px rgba(0,97,224,.08); }
+  50%      { box-shadow: 0 0 32px rgba(0,150,255,.45), inset 0 0 16px rgba(0,130,255,.18); }
+}
+.step-circle {
+  animation: circleGlow 3.2s ease-in-out infinite;
+}
+.step:nth-child(2) .step-circle { animation-delay: .8s; }
+.step:nth-child(3) .step-circle { animation-delay: 1.6s; }
+.step:nth-child(4) .step-circle { animation-delay: 2.4s; }
+
+/* Step number badge — subtle pop-in */
+@keyframes numPop {
+  from { opacity:0; transform:scale(.6); }
+  to   { opacity:1; transform:scale(1); }
+}
+#steps.visible .step:nth-child(1) .step-num { animation: numPop .4s .15s ease both; }
+#steps.visible .step:nth-child(2) .step-num { animation: numPop .4s .35s ease both; }
+#steps.visible .step:nth-child(3) .step-num { animation: numPop .4s .55s ease both; }
+#steps.visible .step:nth-child(4) .step-num { animation: numPop .4s .75s ease both; }
+#steps .step-num { opacity:0; }
+#steps.visible .step-num { opacity:1; }
+
+
+/* ── Running light on timeline ─────────────────────── */
+
+/* Moving glow dot that travels left → right along the line */
+.steps-row::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 12.5%;
+  height: 5px;
+  width: 64px;
+  border-radius: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,200,255,.5) 20%,
+    #00DDFF 45%,
+    rgba(100,230,255,1) 50%,
+    #00DDFF 55%,
+    rgba(0,200,255,.5) 80%,
+    transparent 100%);
+  box-shadow:
+    0 0 8px  rgba(0,210,255,.95),
+    0 0 18px rgba(0,180,255,.65),
+    0 0 32px rgba(0,140,255,.35);
+  filter: blur(.4px);
+  opacity: 0;
+  z-index: 1;
+  /* disabled until visible */
+  animation: none;
+}
+
+/* Trigger when section scrolls into view */
+#steps.visible .steps-row::after {
+  animation: runLight 2.6s cubic-bezier(.45,0,.55,1) 1.4s infinite;
+}
+
+@keyframes runLight {
+  0%   { left: 12.5%;                    opacity: 0; }
+  4%   {                                 opacity: 1; }
+  96%  {                                 opacity: 1; }
+  100% { left: calc(87.5% - 64px);       opacity: 0; }
+}
+
+/* Subtle glow ripple on the base line when light passes */
+.steps-row::before {
+  overflow: visible;
+}
+
+
+/* ── VERTICAL STEPS ─────────────────────────────── */
+/* Override horizontal layout */
+.steps-container { background: rgba(255,255,255,.72); backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.86); border-radius:28px;
+  box-shadow: var(--sh); padding: 44px 48px; }
+
+.steps-vert {
+  display: flex; flex-direction: column;
+  position: relative;
+  gap: 0;
+}
+
+/* Vertical connecting line */
+.steps-vert::before {
+  content: ''; position: absolute;
+  left: 39px; top: 100px; bottom: 80px;
+  width: 2px;
+  background: linear-gradient(180deg,
+    var(--blue-pale), var(--blue) 50%, var(--blue-pale));
+  opacity: .5; z-index: 0;
+  transform: scaleY(0); transform-origin: top;
+  transition: transform 1.1s .15s cubic-bezier(.4,0,.2,1);
+}
+#steps.visible .steps-vert::before { transform: scaleY(1); }
+
+/* Running light — top → bottom */
+.steps-vert::after {
+  content: ''; position: absolute;
+  left: 36px; top: 100px;
+  width: 7px; height: 56px;
+  border-radius: 4px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0,200,255,.55) 20%,
+    #00DDFF 45%,
+    rgba(140,235,255,1) 50%,
+    #00DDFF 55%,
+    rgba(0,200,255,.55) 80%,
+    transparent 100%);
+  box-shadow:
+    0 0 8px rgba(0,210,255,.9),
+    0 0 18px rgba(0,180,255,.6),
+    0 0 30px rgba(0,140,255,.3);
+  filter: blur(.4px);
+  opacity: 0; z-index: 2;
+  animation: none;
+}
+#steps.visible .steps-vert::after {
+  animation: runLightV 3s cubic-bezier(.45,0,.55,1) 1.4s infinite;
+}
+@keyframes runLightV {
+  0%   { top: 100px;              opacity: 0; }
+  4%   {                          opacity: 1; }
+  96%  {                          opacity: 1; }
+  100% { top: calc(100% - 136px); opacity: 0; }
+}
+
+/* Each vertical step item */
+.sv-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 28px;
+  align-items: center;
+  min-height: 110px;
+  position: relative; z-index: 1;
+}
+
+.sv-left {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+}
+
+.sv-num {
+  font-family: 'Geologica', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: .4px;
+  color: var(--blue);
+  background: var(--blue-mist); border: 1px solid var(--blue-pale);
+  border-radius: 50px; padding: 3px 10px; z-index: 1;
+}
+
+.sv-circle {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, #0A1830, #0D2050);
+  border: 2px solid rgba(58,142,255,.4);
+  box-shadow: 0 0 20px rgba(0,97,224,.25), inset 0 0 12px rgba(0,97,224,.1);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+  animation: circleGlow 3.2s ease-in-out infinite;
+}
+.sv-item:nth-child(2) .sv-circle { animation-delay: .8s; }
+.sv-item:nth-child(3) .sv-circle { animation-delay: 1.6s; }
+.sv-item:nth-child(4) .sv-circle { animation-delay: 2.4s; }
+
+.sv-circle img {
+  width: 50px; height: 50px; object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(58,162,255,.5));
+}
+
+.sv-content { display: flex; flex-direction: column; gap: 6px; }
+
+.sv-title {
+  font-family: 'Geologica', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--dark); letter-spacing: -.3px;
+}
+
+.sv-desc { font-size: 14px; color: var(--mid); line-height: 1.6; max-width: 520px; }
+
+/* Stagger fade-in */
+#steps .sv-item {
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+#steps.visible .sv-item:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
+#steps.visible .sv-item:nth-child(2) { opacity:1; transform:none; transition-delay:.25s; }
+#steps.visible .sv-item:nth-child(3) { opacity:1; transform:none; transition-delay:.45s; }
+#steps.visible .sv-item:nth-child(4) { opacity:1; transform:none; transition-delay:.65s; }
+
+
+/* ── Gemini paths ───────────────────────────── */
+.gem-wrap {
+  width: 100%; overflow: visible;
+  margin-bottom: 36px; position: relative;
+}
+.gem-wrap svg { width: 100%; height: auto; overflow: visible; display: block; }
+
+/* All paths start invisible (drawn = 0) */
+.gp {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  /* pathLength="1" set on SVG element */
+}
+/* Trigger draw when section visible */
+#steps.visible .gp {
+  animation: gemDraw var(--dur, 2s) var(--del, 0s) cubic-bezier(.22,0,.28,1) forwards;
+}
+@keyframes gemDraw { to { stroke-dashoffset: 0; } }
+
+/* Blurred background glow paths */
+.gp-blur {
+  fill: none;
+  filter: url(#gem-blur);
+  opacity: .55;
+}
+
+
+/* ══ TIMELINE — Responsive ══════════════════════════════════════ */
+/* Remove old steps layout */
+.steps-row,.sv-item,.sv-left,.sv-content,.sv-title,.sv-desc,
+.gem-wrap,.steps-vert { all: unset; }
+
+.steps-container {
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.86);
+  border-radius: 28px;
+  box-shadow: var(--sh);
+  padding: 48px 48px 44px;
+}
+
+/* ── SHARED: nodes ─────────────────── */
+.tl-num {
+  font-family: 'Geologica', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: .4px;
+  color: var(--blue);
+  background: var(--blue-mist); border: 1px solid var(--blue-pale);
+  border-radius: 50px; padding: 3px 10px;
+  display: inline-block; width: fit-content;
+}
+.tl-circle {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, #0A1830, #0D2050);
+  border: 2px solid rgba(58,142,255,.4);
+  box-shadow: 0 0 20px rgba(0,97,224,.25), inset 0 0 12px rgba(0,97,224,.1);
+  display: flex; align-items: center; justify-content: center;
+  animation: circleGlow 3.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.tl-step:nth-child(2) .tl-circle { animation-delay: .8s; }
+.tl-step:nth-child(3) .tl-circle { animation-delay: 1.6s; }
+.tl-step:nth-child(4) .tl-circle { animation-delay: 2.4s; }
+.tl-circle img {
+  width: 52px; height: 52px; object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(58,162,255,.5));
+}
+.tl-title {
+  font-family: 'Geologica', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--dark); letter-spacing: -.2px; margin-bottom: 6px;
+}
+.tl-desc { font-size: 13.5px; color: var(--mid); line-height: 1.55; }
+
+/* Both keyframes defined globally */
+@keyframes runLightH {
+  0%   { left: 12.5%; opacity: 0; }
+  4%   { opacity: 1; }
+  96%  { opacity: 1; }
+  100% { left: calc(87.5% - 64px); opacity: 0; }
+}
+@keyframes runLightV {
+  0%   { top: 70px; opacity: 0; }
+  4%   { opacity: 1; }
+  96%  { opacity: 1; }
+  100% { top: calc(100% - 140px); opacity: 0; }
+}
+
+/* ── DESKTOP — Horizontal ──────────── */
+.tl-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+/* Horizontal line */
+.tl-wrap::before {
+  content: ''; position: absolute;
+  top: 74px; left: 12.5%; right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue-pale), var(--blue) 50%, var(--blue-pale));
+  opacity: .5; z-index: 0;
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 1.1s .15s cubic-bezier(.4,0,.2,1);
+}
+#steps.visible .tl-wrap::before { transform: scaleX(1); }
+/* Running light — left → right */
+.tl-wrap::after {
+  content: ''; position: absolute;
+  top: 71px; width: 64px; height: 5px; border-radius: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(0,200,255,.55) 20%,
+    #00DDFF 45%, rgba(140,235,255,1) 50%,
+    #00DDFF 55%, rgba(0,200,255,.55) 80%, transparent 100%);
+  box-shadow: 0 0 8px rgba(0,210,255,.9),
+              0 0 18px rgba(0,180,255,.6),
+              0 0 30px rgba(0,140,255,.3);
+  filter: blur(.4px); opacity: 0; z-index: 2; animation: none;
+}
+#steps.visible .tl-wrap::after {
+  animation: runLightH 2.6s cubic-bezier(.45,0,.55,1) 1.4s infinite;
+}
+.tl-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; position: relative; z-index: 1; padding: 0 12px;
+}
+.tl-node {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px; margin-bottom: 20px;
+}
+/* stagger desktop */
+#steps .tl-step {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+#steps.visible .tl-step:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+#steps.visible .tl-step:nth-child(2){opacity:1;transform:none;transition-delay:.25s}
+#steps.visible .tl-step:nth-child(3){opacity:1;transform:none;transition-delay:.45s}
+#steps.visible .tl-step:nth-child(4){opacity:1;transform:none;transition-delay:.65s}
+
+/* ── MOBILE/TABLET — Vertical ──────── */
+@media (max-width: 768px) {
+  .tl-wrap {
+    grid-template-columns: 1fr;
+    display: flex; flex-direction: column;
+    row-gap: 8px;
+  }
+  /* Vertical line on left */
+  .tl-wrap::before {
+    top: 70px; bottom: 55px;
+    left: 39px; right: auto;
+    width: 2px; height: auto;
+    background: linear-gradient(180deg,
+      var(--blue-pale), var(--blue) 50%, var(--blue-pale));
+    transform: scaleY(0); transform-origin: top center;
+  }
+  #steps.visible .tl-wrap::before { transform: scaleY(1) !important; }
+  /* Running light — top → bottom */
+  .tl-wrap::after {
+    top: 70px; left: 36px; right: auto;
+    width: 7px; height: 56px;
+    background: linear-gradient(180deg,
+      transparent 0%, rgba(0,200,255,.55) 20%,
+      #00DDFF 45%, rgba(140,235,255,1) 50%,
+      #00DDFF 55%, rgba(0,200,255,.55) 80%, transparent 100%);
+  }
+  #steps.visible .tl-wrap::after {
+    animation: runLightV 2.8s cubic-bezier(.45,0,.55,1) 1.4s infinite !important;
+  }
+  /* Step layout: horizontal row */
+  .tl-step {
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    gap: 24px; min-height: 130px; padding: 8px 0 !important;
+  }
+  .tl-node {
+    width: 80px; flex-shrink: 0; margin-bottom: 0 !important;
+  }
+  .tl-circle { width: 80px !important; height: 80px !important; }
+  .tl-circle img { width: 46px !important; height: 46px !important; }
+  /* stagger from left on mobile */
+  #steps .tl-step { transform: translateX(-20px) !important; }
+  #steps.visible .tl-step:nth-child(n) { transform: none !important; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="4.9" y2="19.1"/></svg></div>
+    Inter-Klimat
+  </a>
+  <ul class="nav-links">
+    <li><a href="#selector">Підбір</a></li>
+    <li><a href="#scenarios">Сценарії</a></li>
+    <li><a href="#steps">Як це працює</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a class="nav-btn" href="#cta">Отримати підбір</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img id="heroBg" class="hero-bg" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D1%81%D0%BF%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_001.webp" alt="Спальня з кондиціонером"/>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="hero-badge"><span class="hero-dot"></span>Підбір кондиціонерів в Україні</span>
+    <h1>Кондиціонер<br>без <em>складного</em> вибору</h1>
+    <p class="hero-sub">Допоможемо знайти модель, яка підходить <strong>саме вам</strong> — за площею, функціями та бюджетом. Пояснимо різницю простими словами.</p>
+    <div class="hero-actions">
+      <a class="btn-hero-main" href="#cta">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Отримати підбір
+      </a>
+      <a class="btn-hero-ghost" href="#steps">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>Як це працює
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating cards -->
+  <div class="fc fc-1">
+    <div class="fc-icon ic-blue">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0061E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- crescent moon -->
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        <!-- soft air waves -->
+        <path d="M3 18 Q4.5 16.5 6 18 Q7.5 19.5 9 18" stroke-width="1.8"/>
+        <path d="M3 21.5 Q4.5 20 6 21.5 Q7.5 23 9 21.5" stroke-width="1.5" opacity=".7"/>
+      </svg>
+    </div>
+    <div><div class="fc-t">Тихий режим</div><div class="fc-s">19 дБ · ідеально для спальні</div></div>
+  </div>
+  <div class="fc fc-2">
+    <div class="fc-icon ic-green">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+    </div>
+    <div><div class="fc-t">Клас A+++</div><div class="fc-s">Економія до 60%</div></div>
+  </div>
+  <div class="fc fc-3">
+    <div class="fc-icon ic-amber">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <circle cx="12" cy="20" r="1" fill="#d97706"/>
+      </svg>
+    </div>
+    <div><div class="fc-t">Wi-Fi керування</div><div class="fc-s">Керуйте з телефону</div></div>
+  </div>
+
+  <!-- ROOM PILLS -->
+  <div class="hero-pills">
+    <span class="hero-pill on" data-key="bedroom">
+      <img class="pill-icon" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsMSIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzEiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsMSkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cGF0aCBkPSJNMTQgMzggTDE0IDI4IFExNCAyMCAyMiAyMCBMNDIgMjAgUTUwIDIwIDUwIDI4IEw1MCAzOCIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjk1KSIgc3Ryb2tlLXdpZHRoPSIyLjIiLz4KPHBhdGggZD0iTTEwIDM4IEw1NCAzOCBMNTQgNDQgUTU0IDQ2IDUyIDQ2IEwxMiA0NiBRMTAgNDYgMTAgNDQgWiIgZmlsbD0icmdiYSgyMCw1MCwxMDAsLjU1KSIvPgo8cmVjdCB4PSIxNyIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI4IiByeD0iMy41IiBmaWxsPSJyZ2JhKDMwLDcwLDE0MCwuNSkiIHN0cm9rZT0icmdiYSgxODAsMjI1LDI1NSwuODUpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8cmVjdCB4PSIzNSIgeT0iMjEiIHdpZHRoPSIxMiIgaGVpZ2h0PSI4IiByeD0iMy41IiBmaWxsPSJyZ2JhKDMwLDcwLDE0MCwuNSkiIHN0cm9rZT0icmdiYSgxODAsMjI1LDI1NSwuODUpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8bGluZSB4MT0iMTAiIHkxPSIzOCIgeDI9IjU0IiB5Mj0iMzgiLz4KPGxpbmUgeDE9IjE2IiB5MT0iNDYiIHgyPSIxNiIgeTI9IjUwIi8+CjxsaW5lIHgxPSI0OCIgeTE9IjQ2IiB4Mj0iNDgiIHkyPSI1MCIvPgoKPC9nPgo8L3N2Zz4=" alt=""/>Спальня
+    </span>
+    <span class="hero-pill" data-key="kids">
+      <img class="pill-icon" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsMiIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzIiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsMikiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cmVjdCB4PSIxNCIgeT0iMjIiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcng9IjUiIGZpbGw9InJnYmEoMTUsNDAsMTAwLC41KSIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjkpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTI2IDI2IEwyNy40IDMwLjggTDMyLjUgMzAuOCBMMjguNSAzMy42IEwzMCAzOC41IEwyNiAzNS41IEwyMiAzOC41IEwyMy41IDMzLjYgTDE5LjUgMzAuOCBMMjQuNiAzMC44IFoiCiAgc3Ryb2tlPSJyZ2JhKDAsMjIwLDI1NSwuOTUpIiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSI0NCIgY3k9IjI4IiByPSI1IiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC45KSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxlbGxpcHNlIGN4PSI0NCIgY3k9IjM2IiByeD0iNCIgcnk9IjMiIHN0cm9rZT0icmdiYSgwLDIwMCwyNTUsLjcpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8ZWxsaXBzZSBjeD0iNDQiIGN5PSI0MiIgcng9IjIuNSIgcnk9IjIiIHN0cm9rZT0icmdiYSgwLDE4MCwyNTUsLjU1KSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KCjwvZz4KPC9zdmc+" alt=""/>Дитяча
+    </span>
+    <span class="hero-pill" data-key="living">
+      <img class="pill-icon" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsMyIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzMiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsMykiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cmVjdCB4PSIxMCIgeT0iMjYiIHdpZHRoPSI0NCIgaGVpZ2h0PSIyMCIgcng9IjYiIGZpbGw9InJnYmEoMTUsNDAsMTAwLC41KSIvPgo8cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9InJnYmEoMjAsNTUsMTIwLC40KSIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjkpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMTAiIHk9IjI2IiB3aWR0aD0iNDQiIGhlaWdodD0iMjAiIHJ4PSI2IiBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwuODUpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMTAiIHk9IjI2IiB3aWR0aD0iOSIgaGVpZ2h0PSIyMCIgcng9IjUiIGZpbGw9InJnYmEoMjUsNjAsMTMwLC40NSkiIHN0cm9rZT0icmdiYSg5MCwxODAsMjU1LC43NSkiIHN0cm9rZS13aWR0aD0iMS44Ii8+CjxyZWN0IHg9IjQ1IiB5PSIyNiIgd2lkdGg9IjkiIGhlaWdodD0iMjAiIHJ4PSI1IiBmaWxsPSJyZ2JhKDI1LDYwLDEzMCwuNDUpIiBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwuNzUpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8bGluZSB4MT0iMzIiIHkxPSIyNiIgeDI9IjMyIiB5Mj0iNDYiIHN0cm9rZT0icmdiYSg5MCwxODAsMjU1LC4zNSkiIHN0cm9rZS13aWR0aD0iMSIvPgo8bGluZSB4MT0iMTciIHkxPSI0NiIgeDI9IjE3IiB5Mj0iNTAiLz4KPGxpbmUgeDE9IjQ3IiB5MT0iNDYiIHgyPSI0NyIgeTI9IjUwIi8+Cgo8L2c+Cjwvc3ZnPg==" alt=""/>Вітальня
+    </span>
+    <span class="hero-pill" data-key="office">
+      <img class="pill-icon" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsNCIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzQiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsNCkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cmVjdCB4PSIxMiIgeT0iMTQiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyOCIgcng9IjUiIGZpbGw9InJnYmEoMTAsMzAsODAsLjU1KSIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjkpIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjIwIiB5MT0iMjIiIHgyPSIzNiIgeTI9IjIyIiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC44NSkiIHN0cm9rZS13aWR0aD0iMS44Ii8+CjxsaW5lIHgxPSIyMCIgeTE9IjI3IiB4Mj0iMzIiIHkyPSIyNyIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjY1KSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KPGxpbmUgeDE9IjIwIiB5MT0iMzIiIHgyPSIyOCIgeTI9IjMyIiBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwuNDUpIiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8bGluZSB4MT0iMzIiIHkxPSI0MiIgeDI9IjMyIiB5Mj0iNDYiLz4KPHJlY3QgeD0iMjAiIHk9IjQ2IiB3aWR0aD0iMjQiIGhlaWdodD0iNSIgcng9IjIuNSIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjgpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8Y2lyY2xlIGN4PSI0NSIgY3k9IjI3IiByPSI0IiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC44KSIgc3Ryb2tlLXdpZHRoPSIxLjgiLz4KCjwvZz4KPC9zdmc+" alt=""/>Офіс
+    </span>
+    <span class="hero-pill" data-key="heating">
+      <img class="pill-icon" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsNSIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzUiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsNSkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8Y2lyY2xlIGN4PSIzMiIgY3k9IjE3IiByPSI2IiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC45KSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIzMiIgeTE9IjkiIHgyPSIzMiIgeTI9IjciLz4KPGxpbmUgeDE9IjM4LjIiIHkxPSIxMC44IiB4Mj0iMzkuNiIgeTI9IjkuNCIvPgo8bGluZSB4MT0iNDAiIHkxPSIxNyIgeDI9IjQyIiB5Mj0iMTciLz4KPGxpbmUgeDE9IjM4LjIiIHkxPSIyMy4yIiB4Mj0iMzkuNiIgeTI9IjI0LjYiLz4KPGxpbmUgeDE9IjI1LjgiIHkxPSIxMC44IiB4Mj0iMjQuNCIgeTI9IjkuNCIvPgo8bGluZSB4MT0iMjQiIHkxPSIxNyIgeDI9IjIyIiB5Mj0iMTciLz4KPHJlY3QgeD0iMTEiIHk9IjI4IiB3aWR0aD0iNDIiIGhlaWdodD0iMTYiIHJ4PSI2IiBmaWxsPSJyZ2JhKDEwLDMwLDgwLC41NSkiIHN0cm9rZT0icmdiYSg5MCwxODAsMjU1LC45KSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIxOCIgeTE9IjM0IiB4Mj0iNDYiIHkyPSIzNCIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPGxpbmUgeDE9IjE4IiB5MT0iMzciIHgyPSI0MCIgeTI9IjM3IiBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwuMzUpIiBzdHJva2Utd2lkdGg9IjEiLz4KPGNpcmNsZSBjeD0iNDYiIGN5PSIzMSIgcj0iMiIgZmlsbD0icmdiYSgwLDIyMCwyNTUsLjgpIiBzdHJva2U9Im5vbmUiLz4KPHBhdGggZD0iTTIyIDQ3IFEyMiA1MCAyNSA1MCIgc3Ryb2tlPSJyZ2JhKDAsMTgwLDI1NSwuNikiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0zMCA0NyBRMzAgNTEgMzMgNTEiIHN0cm9rZT0icmdiYSgwLDE4MCwyNTUsLjUpIiBzdHJva2Utd2lkdGg9IjEuOCIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMzggNDcgUTM4IDUwIDQxIDUwIiBzdHJva2U9InJnYmEoMCwxODAsMjU1LC40KSIgc3Ryb2tlLXdpZHRoPSIxLjgiIGZpbGw9Im5vbmUiLz4KCjwvZz4KPC9zdmc+" alt=""/>Обігрів
+    </span>
+  </div>
+
+  <div class="hero-spacer"></div>
+
+  <!-- STATS -->
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="h-icon"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsNiIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzYiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsNikiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8Y2lyY2xlIGN4PSIxNCIgY3k9IjMyIiByPSI1IiBmaWxsPSJyZ2JhKDE1LDQwLDEwMCwuNSkiIHN0cm9rZT0icmdiYSgwLDIwMCwyNTUsLjg1KSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjI4IiBjeT0iMjIiIHI9IjUiIGZpbGw9InJnYmEoMTUsNDAsMTAwLC41KSIgc3Ryb2tlPSJyZ2JhKDUwLDE4MCwyNTUsLjgpIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iNDIiIGN5PSIzMiIgcj0iNSIgZmlsbD0icmdiYSgxNSw0MCwxMDAsLjUpIiBzdHJva2U9InJnYmEoODAsMTcwLDI1NSwuNzUpIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iNTYiIGN5PSIyMiIgcj0iNCIgZmlsbD0icmdiYSgxNSw0MCwxMDAsLjUpIiBzdHJva2U9InJnYmEoMTAwLDE2MCwyNTUsLjcpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8cGF0aCBkPSJNMTkgMzAgUTIzLjUgMjIgMjMuNSAyMiIgc3Ryb2tlPSJyZ2JhKDAsMjAwLDI1NSwuNTUpIiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMzMgMjQgUTM3LjUgMzIgMzcuNSAzMiIgc3Ryb2tlPSJyZ2JhKDYwLDE4MCwyNTUsLjUpIiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNNDcgMzAgUTUxLjUgMjIgNTEuNSAyMiIgc3Ryb2tlPSJyZ2JhKDkwLDE3MCwyNTUsLjQ1KSIgc3Ryb2tlLXdpZHRoPSIxLjYiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTYwIDIyIEw2MyAyMiIgc3Ryb2tlPSJyZ2JhKDAsMjAwLDI1NSwuNykiIHN0cm9rZS13aWR0aD0iMS44IiBtYXJrZXItZW5kPSJ1cmwoI2FycikiLz4KPHBhdGggZD0iTTEwIDMyIEw3IDMyIiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iMS42IiBzdHJva2UtZGFzaGFycmF5PSIyIDIiLz4KPGNpcmNsZSBjeD0iMTQiIGN5PSIzMiIgcj0iMi41IiBmaWxsPSJyZ2JhKDAsMjIwLDI1NSwuOSkiIHN0cm9rZT0ibm9uZSIvPgoKPC9nPgo8L3N2Zz4=" alt=""/></div>
+      <div class="h-body">
+        <span class="h-num"><span>4</span> кроки</span>
+        <span class="h-lbl">від заявки до рекомендації</span>
+      </div>
+    </div>
+    <div class="h-stat">
+      <div class="h-icon"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsNyIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzciIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsNykiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cmVjdCB4PSI2IiB5PSIyMiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0icmdiYSgxMCwzMCw3NSwuNSkiIHN0cm9rZT0icmdiYSg4MCwxNjAsMjU1LC42NSkiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxyZWN0IHg9IjcuNSIgeT0iMjUiIHdpZHRoPSIxMyIgaGVpZ2h0PSI2IiByeD0iMi41IiBzdHJva2U9InJnYmEoODAsMTYwLDI1NSwuNikiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxyZWN0IHg9IjQyIiB5PSIyMiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0icmdiYSgxMCwzMCw3NSwuNSkiIHN0cm9rZT0icmdiYSg4MCwxNjAsMjU1LC42NSkiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxyZWN0IHg9IjQzLjUiIHk9IjI1IiB3aWR0aD0iMTMiIGhlaWdodD0iNiIgcng9IjIuNSIgc3Ryb2tlPSJyZ2JhKDgwLDE2MCwyNTUsLjYpIiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8cmVjdCB4PSIyMCIgeT0iMTYiIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMiIgcng9IjUiIGZpbGw9InJnYmEoMTUsNDUsMTEwLC42KSIgc3Ryb2tlPSJyZ2JhKDAsMjAwLDI1NSwuOTIpIiBzdHJva2Utd2lkdGg9IjIuMiIvPgo8cmVjdCB4PSIyMiIgeT0iMjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI4IiByeD0iMyIgc3Ryb2tlPSJyZ2JhKDAsMjEwLDI1NSwuODUpIiBzdHJva2Utd2lkdGg9IjEuOCIvPgo8Y2lyY2xlIGN4PSIzNiIgY3k9IjQwIiByPSI2IiBmaWxsPSJyZ2JhKDAsMTYwLDI1NSwuMikiIHN0cm9rZT0icmdiYSgwLDIyMCwyNTUsLjkpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iMzMsNDAgMzUuNSw0Mi41IDM5LjUsMzcuNSIgc3Ryb2tlPSJyZ2JhKDAsMjQwLDI1NSwuOTUpIiBzdHJva2Utd2lkdGg9IjIuMiIvPgoKPC9nPgo8L3N2Zz4=" alt=""/></div>
+      <div class="h-body">
+        <span class="h-num"><span>2–3</span> моделі</span>
+        <span class="h-lbl">під бюджет і площу</span>
+      </div>
+    </div>
+    <div class="h-stat">
+      <div class="h-icon"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsOCIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KPC9kZWZzPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPGcgZmlsdGVyPSJ1cmwoI2dsOCkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTIpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgPCEtLSBSb3VuZGVkIHJlY3RhbmdsZSBzcGVlY2ggYnViYmxlIHdpdGggdGFpbCAtLT4KICA8cGF0aCBkPSJNMTIgMTQgUTEyIDEwIDE2IDEwIEw0OCAxMCBRNTIgMTAgNTIgMTQgTDUyIDM4IFE1MiA0MiA0OCA0MiBMMjIgNDIgTDE0IDUwIEwxNCA0MiBRMTIgNDIgMTIgMzggWiIKICAgIGZpbGw9InJnYmEoMTAsMjQsNTQsMC44MikiIHN0cm9rZT0icmdiYSgyMTAsMjM1LDI1NSwuOTApIiBzdHJva2Utd2lkdGg9IjIuMiIvPgogIDwhLS0gMyBjbGVhbiBob3Jpem9udGFsIGxpbmVzIC0tPgogIDxsaW5lIHgxPSIyMCIgeTE9IjIwIiB4Mj0iNDQiIHkyPSIyMCIgc3Ryb2tlLXdpZHRoPSIyLjIiLz4KICA8bGluZSB4MT0iMjAiIHkxPSIyNyIgeDI9IjQwIiB5Mj0iMjciIHN0cm9rZS13aWR0aD0iMiIvPgogIDxsaW5lIHgxPSIyMCIgeTE9IjM0IiB4Mj0iMzUiIHkyPSIzNCIgc3Ryb2tlLXdpZHRoPSIxLjgiLz4KPC9nPgo8L3N2Zz4=" alt=""/></div>
+      <div class="h-body">
+        <span class="h-num" style="font-size:15px;letter-spacing:-.2px;line-height:1.25">Простий<br>вибір</span>
+        <span class="h-lbl">без складних термінів</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTOR — centered, max-width 960px -->
+<section id="selector" class="selector-outer reveal">
+  <div class="selector-glass">
+    <div class="section-tag"><span class="tag-dot"></span>Простий підбір</div>
+    <div class="selector-title">Почніть з простого: яка у вас кімната?</div>
+    <div class="selector-sub">Оберіть тип приміщення, площу та важливі функції — ми допоможемо звузити вибір до кількох відповідних моделей.</div>
+    <div class="selector-row">
+      <div class="sel-group">
+        <label class="sel-label">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Тип приміщення
+        </label>
+        <select class="sel-select"><option>Квартира</option><option>Будинок</option><option>Офіс</option><option>Магазин або салон</option></select>
+      </div>
+      <div class="sel-group">
+        <label class="sel-label">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Площа
+        </label>
+        <select class="sel-select"><option>До 20 м²</option><option>20–35 м²</option><option>35–50 м²</option><option>Понад 50 м²</option></select>
+      </div>
+      <div class="sel-group">
+        <label class="sel-label">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Що важливо
+        </label>
+        <select class="sel-select"><option>Тиха робота</option><option>Обігрів</option><option>Wi-Fi керування</option><option>Економне споживання</option><option>Бюджетне рішення</option></select>
+      </div>
+      <a class="btn btn-blue" href="#cta" style="white-space:nowrap">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg>Показати моделі
+      </a>
+    </div>
+    <div class="sel-hint">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      Точний вибір залежить не лише від площі. Ми також врахуємо висоту стелі, сонячну сторону, кількість людей у кімнаті та режим використання.
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS — full width 3x2 grid -->
+<section id="scenarios" class="sc-full reveal">
+  <div class="sc-full-head">
+    <div class="section-tag"><span class="tag-dot"></span>Сценарії</div>
+    <h2>Підберемо кондиціонер <em>під вашу задачу</em></h2>
+    <p class="lead">Не просто модель — рішення під конкретну кімнату і ситуацію.</p>
+  </div>
+
+  <!-- 3x2 full-bleed grid -->
+  <div class="sc-grid-3x2">
+
+    <!-- Row 1 -->
+    <div class="sc-card">
+      <img class="sc-img" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D1%81%D0%BF%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_003.webp" alt="Спальня"/>
+      <div class="sc-overlay"></div>
+      <div class="sc-body">
+        <span class="sc-tag">Тихий режим</span>
+        <div class="sc-name">Для спальні</div>
+        <div class="sc-desc">Підберемо тиху модель з нічним режимом і плавним підтриманням температури, щоб кондиціонер не заважав відпочинку.</div>
+        <a href="#cta" class="sc-btn">Підібрати <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="sc-card">
+      <img class="sc-img" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B0_001_003.webp" alt="Дитяча"/>
+      <div class="sc-overlay"></div>
+      <div class="sc-body">
+        <span class="sc-tag">Безпека</span>
+        <div class="sc-name">Для дитячої</div>
+        <div class="sc-desc">Порадимо модель із м'яким потоком повітря, стабільною температурою та простим керуванням для щоденного комфорту.</div>
+        <a href="#cta" class="sc-btn">Підібрати <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="sc-card">
+      <img class="sc-img" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B2%D1%96%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_001_003.webp" alt="Вітальня"/>
+      <div class="sc-overlay"></div>
+      <div class="sc-body">
+        <span class="sc-tag">Потужність</span>
+        <div class="sc-name">Для вітальні</div>
+        <div class="sc-desc">Підберемо потужність під простору кімнату, щоб кондиціонер швидко охолоджував повітря без перевантаження.</div>
+        <a href="#cta" class="sc-btn">Підібрати <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="sc-card">
+      <img class="sc-img" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D0%B1%D1%96%D0%B3%D1%80%D1%96%D0%B2_001_003.webp" alt="Обігрів"/>
+      <div class="sc-overlay"></div>
+      <div class="sc-body">
+        <span class="sc-tag">Цілий рік</span>
+        <div class="sc-name">Для обігріву</div>
+        <div class="sc-desc">Порадимо моделі з ефективним режимом обігріву для міжсезоння та прохолодних днів.</div>
+        <a href="#cta" class="sc-btn">Підібрати <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="sc-card">
+      <img class="sc-img" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D1%84%D1%96%D1%81_001_003.webp" alt="Офіс"/>
+      <div class="sc-overlay"></div>
+      <div class="sc-body">
+        <span class="sc-tag">Стабільність</span>
+        <div class="sc-name">Для офісу</div>
+        <div class="sc-desc">Підберемо модель для стабільної роботи протягом дня, щоб у робочому просторі було комфортно без зайвого шуму.</div>
+        <a href="#cta" class="sc-btn">Підібрати <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <div class="sc-card">
+      <img class="sc-img" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D1%81%D0%B0%D0%BB%D0%BE%D0%BD_003.webp" alt="Малий бізнес"/>
+      <div class="sc-overlay"></div>
+      <div class="sc-body">
+        <span class="sc-tag">Для клієнтів</span>
+        <div class="sc-name">Для малого бізнесу</div>
+        <div class="sc-desc">Рішення для салонів, стоматологічних кабінетів, студій, магазинів та інших комерційних приміщень.</div>
+        <a href="#cta" class="sc-btn">Підібрати <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- STEPS — responsive timeline -->
+<section id="steps" class="section reveal">
+  <div class="section-tag"><span class="tag-dot"></span>Процес</div>
+  <h2>Що буде <em>після заявки?</em></h2>
+  <p class="lead">Від заявки до зрозумілого рішення — 4 кроки.</p>
+  <div class="steps-container">
+    <div class="tl-wrap">
+      <div class="tl-step">
+        <div class="tl-node">
+          <span class="tl-num">01</span>
+          <div class="tl-circle"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsOSIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMzBCMEZGIiBmbG9vZC1vcGFjaXR5PSIuNjAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KICA8ZmlsdGVyIGlkPSJhdzkiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzAwRERGRiIgZmxvb2Qtb3BhY2l0eT0iLjcwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CjwvZGVmcz4KPCEtLSBzbW9reSBnbGFzcyBiYWNrZ3JvdW5kIC0tPgo8cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iNTgiIGhlaWdodD0iNTgiIHJ4PSIxNCIKICBmaWxsPSIjMDgxNDI4IiBmaWxsLW9wYWNpdHk9Ii43NCIKICBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwwLjMyKSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPCEtLSBpY29uIHdpdGggZ2xvdyAtLT4KPGcgZmlsdGVyPSJ1cmwoI2dsOSkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cmVjdCB4PSIxMCIgeT0iMTAiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjciIGZpbGw9InJnYmEoMTAsMzAsODAsLjU1KSIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjkpIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjE4IiB5MT0iMjIiIHgyPSIzOCIgeTI9IjIyIiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC44NSkiIHN0cm9rZS13aWR0aD0iMiIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI3IiByeD0iMiIgc3Ryb2tlPSJyZ2JhKDAsMjIwLDI1NSwuNzUpIiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0icmdiYSgwLDEwMCwyMDAsLjIpIi8+CjxsaW5lIHgxPSIxOCIgeTE9IjMyIiB4Mj0iMzIiIHkyPSIzMiIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjY1KSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KPGxpbmUgeDE9IjE4IiB5MT0iMzgiIHgyPSIyOCIgeTI9IjM4IiBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwuNDUpIiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8cGF0aCBkPSJNNDIgMzYgTDU0IDMwIEw0MiAyNCBMNDUgMzAgWiIgZmlsbD0icmdiYSgwLDIwMCwyNTUsLjMpIiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC45KSIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCjwvZz4KPC9zdmc+" alt=""/></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-title">Залишаєте заявку</div>
+          <div class="tl-desc">Коротко описуєте кімнату, площу та побажання.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-node">
+          <span class="tl-num">02</span>
+          <div class="tl-circle"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsMTAiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjIuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzMwQjBGRiIgZmxvb2Qtb3BhY2l0eT0iLjYwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CiAgPGZpbHRlciBpZD0iYXcxMCIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMS41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMDBEREZGIiBmbG9vZC1vcGFjaXR5PSIuNzAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KPC9kZWZzPgo8IS0tIHNtb2t5IGdsYXNzIGJhY2tncm91bmQgLS0+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI1OCIgaGVpZ2h0PSI1OCIgcng9IjE0IgogIGZpbGw9IiMwODE0MjgiIGZpbGwtb3BhY2l0eT0iLjc0IgogIHN0cm9rZT0icmdiYSg5MCwxODAsMjU1LDAuMzIpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8IS0tIGljb24gd2l0aCBnbG93IC0tPgo8ZyBmaWx0ZXI9InVybCgjZ2wxMCkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cGF0aCBkPSJNMzIgMTAgTDUwIDI2IEw1MCA1MiBMMTQgNTIgTDE0IDI2IFoiIGZpbGw9InJnYmEoMTAsMzAsODAsLjUpIiBzdHJva2U9InJnYmEoOTAsMTgwLDI1NSwuOSkiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMzIgMTAgTDMyIDI2IEw1MCAyNiIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjUpIiBzdHJva2Utd2lkdGg9IjEuNiIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSIzMiIgY3k9IjM0IiByPSI2IiBzdHJva2U9InJnYmEoMCwyMjAsMjU1LC45KSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIzMiIgeTE9IjI2IiB4Mj0iMzIiIHkyPSIyOCIvPgo8bGluZSB4MT0iMzIiIHkxPSI0MCIgeDI9IjMyIiB5Mj0iNDIiLz4KPGxpbmUgeDE9IjI0IiB5MT0iMzQiIHgyPSIyNiIgeTI9IjM0Ii8+CjxsaW5lIHgxPSIzOCIgeTE9IjM0IiB4Mj0iNDAiIHkyPSIzNCIvPgo8bGluZSB4MT0iOCIgeTE9IjQ2IiB4Mj0iOCIgeTI9IjEwIiBzdHJva2U9InJnYmEoMCwyMDAsMjU1LC42KSIgc3Ryb2tlLXdpZHRoPSIxLjgiLz4KPGxpbmUgeDE9IjYiIHkxPSIxMCIgeDI9IjEwIiB5Mj0iMTAiLz4KPGxpbmUgeDE9IjYiIHkxPSI0NiIgeDI9IjEwIiB5Mj0iNDYiLz4KPGxpbmUgeDE9IjE0IiB5MT0iNTgiIHgyPSI1NiIgeTI9IjU4IiBzdHJva2U9InJnYmEoMCwyMDAsMjU1LC42KSIgc3Ryb2tlLXdpZHRoPSIxLjgiLz4KPGxpbmUgeDE9IjE0IiB5MT0iNTYiIHgyPSIxNCIgeTI9IjYwIi8+CjxsaW5lIHgxPSI1NiIgeTE9IjU2IiB4Mj0iNTYiIHkyPSI2MCIvPgoKPC9nPgo8L3N2Zz4=" alt=""/></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-title">Уточнюємо деталі</div>
+          <div class="tl-desc">Площа, сонячна сторона, висота стелі та сценарій використання.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-node">
+          <span class="tl-num">03</span>
+          <div class="tl-circle"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsMTEiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjIuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzMwQjBGRiIgZmxvb2Qtb3BhY2l0eT0iLjYwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CiAgPGZpbHRlciBpZD0iYXcxMSIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMS41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMDBEREZGIiBmbG9vZC1vcGFjaXR5PSIuNzAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KPC9kZWZzPgo8IS0tIHNtb2t5IGdsYXNzIGJhY2tncm91bmQgLS0+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI1OCIgaGVpZ2h0PSI1OCIgcng9IjE0IgogIGZpbGw9IiMwODE0MjgiIGZpbGwtb3BhY2l0eT0iLjc0IgogIHN0cm9rZT0icmdiYSg5MCwxODAsMjU1LDAuMzIpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8IS0tIGljb24gd2l0aCBnbG93IC0tPgo8ZyBmaWx0ZXI9InVybCgjZ2wxMSkiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cmVjdCB4PSI1IiB5PSIyMCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0icmdiYSgxMCwzMCw3NSwuNSkiIHN0cm9rZT0icmdiYSg4MCwxNjAsMjU1LC42NSkiIHN0cm9rZS13aWR0aD0iMS42Ii8+CjxyZWN0IHg9IjYuNSIgeT0iMjMiIHdpZHRoPSIxNSIgaGVpZ2h0PSI3IiByeD0iMi41IiBzdHJva2U9InJnYmEoODAsMTYwLDI1NSwuNTUpIiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8cmVjdCB4PSI0MSIgeT0iMjAiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InJnYmEoMTAsMzAsNzUsLjUpIiBzdHJva2U9InJnYmEoODAsMTYwLDI1NSwuNjUpIiBzdHJva2Utd2lkdGg9IjEuNiIvPgo8cmVjdCB4PSI0Mi41IiB5PSIyMyIgd2lkdGg9IjE1IiBoZWlnaHQ9IjciIHJ4PSIyLjUiIHN0cm9rZT0icmdiYSg4MCwxNjAsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iMS40Ii8+CjxyZWN0IHg9IjE5IiB5PSIxNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjM2IiByeD0iNSIgZmlsbD0icmdiYSgxNSw0NSwxMTAsLjYpIiBzdHJva2U9InJnYmEoMCwyMDAsMjU1LC45MikiIHN0cm9rZS13aWR0aD0iMi4yIi8+CjxyZWN0IHg9IjIxLjUiIHk9IjE4IiB3aWR0aD0iMjEiIGhlaWdodD0iOSIgcng9IjMiIHN0cm9rZT0icmdiYSgwLDIxMCwyNTUsLjg1KSIgc3Ryb2tlLXdpZHRoPSIxLjgiLz4KPGNpcmNsZSBjeD0iMzIiIGN5PSI0MSIgcj0iNyIgZmlsbD0icmdiYSgwLDE1MCwyNTUsLjIyKSIgc3Ryb2tlPSJyZ2JhKDAsMjIwLDI1NSwuOTIpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iMjksNDEgMzEuNSw0My41IDM1LjUsMzguNSIgc3Ryb2tlPSJyZ2JhKDAsMjQwLDI1NSwuOTYpIiBzdHJva2Utd2lkdGg9IjIuMiIvPgoKPC9nPgo8L3N2Zz4=" alt=""/></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-title">Підбираємо 2–3 моделі</div>
+          <div class="tl-desc">Варіанти під ваш бюджет, потужність і потрібні функції.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-node">
+          <span class="tl-num">04</span>
+          <div class="tl-circle"><img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgogIDxmaWx0ZXIgaWQ9ImdsMTIiIHg9Ii00MCUiIHk9Ii00MCUiIHdpZHRoPSIxODAlIiBoZWlnaHQ9IjE4MCUiPgogICAgPGZlR2F1c3NpYW5CbHVyIGluPSJTb3VyY2VHcmFwaGljIiBzdGREZXZpYXRpb249IjIuNSIgcmVzdWx0PSJiIi8+CiAgICA8ZmVGbG9vZCBmbG9vZC1jb2xvcj0iIzMwQjBGRiIgZmxvb2Qtb3BhY2l0eT0iLjYwIi8+CiAgICA8ZmVDb21wb3NpdGUgaW4yPSJiIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZ3ciLz4KICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iZ3ciLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+CiAgPC9maWx0ZXI+CiAgPGZpbHRlciBpZD0iYXcxMiIgeD0iLTQwJSIgeT0iLTQwJSIgd2lkdGg9IjE4MCUiIGhlaWdodD0iMTgwJSI+CiAgICA8ZmVHYXVzc2lhbkJsdXIgaW49IlNvdXJjZUdyYXBoaWMiIHN0ZERldmlhdGlvbj0iMS41IiByZXN1bHQ9ImIiLz4KICAgIDxmZUZsb29kIGZsb29kLWNvbG9yPSIjMDBEREZGIiBmbG9vZC1vcGFjaXR5PSIuNzAiLz4KICAgIDxmZUNvbXBvc2l0ZSBpbjI9ImIiIG9wZXJhdG9yPSJpbiIgcmVzdWx0PSJndyIvPgogICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJndyIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICA8L2ZpbHRlcj4KPC9kZWZzPgo8IS0tIHNtb2t5IGdsYXNzIGJhY2tncm91bmQgLS0+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI1OCIgaGVpZ2h0PSI1OCIgcng9IjE0IgogIGZpbGw9IiMwODE0MjgiIGZpbGwtb3BhY2l0eT0iLjc0IgogIHN0cm9rZT0icmdiYSg5MCwxODAsMjU1LDAuMzIpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8IS0tIGljb24gd2l0aCBnbG93IC0tPgo8ZyBmaWx0ZXI9InVybCgjZ2wxMikiIHN0cm9rZT0icmdiYSgyMTUsMjM4LDI1NSwuOTQpIiBzdHJva2Utd2lkdGg9IjIiCiAgIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+Cgo8cGF0aCBkPSJNMTIgMTIgUTEyIDggMTYgOCBMNDggOCBRNTIgOCA1MiAxMiBMNTIgNDAgUTUyIDQ0IDQ4IDQ0IEwyMiA0NCBMMTIgNTIgTDEyIDQ0IFE4IDQ0IDggNDAgTDggMTIgUTggOCAxMiA4IgogIGZpbGw9InJnYmEoMTAsMzAsODAsLjU1KSIgc3Ryb2tlPSJyZ2JhKDkwLDE4MCwyNTUsLjkpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTEyIDEyIFExMiA4IDE2IDggTDQ4IDggUTUyIDggNTIgMTIgTDUyIDQwIFE1MiA0NCA0OCA0NCBMMjIgNDQgTDEyIDUyIEwxMiA0NCIvPgo8Y2lyY2xlIGN4PSIzMiIgY3k9IjI2IiByPSIxMCIgZmlsbD0icmdiYSgwLDE0MCwyNTUsLjE4KSIgc3Ryb2tlPSJyZ2JhKDAsMjEwLDI1NSwuODgpIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iMjYsMjYgMzAsMzAgMzgsMjAiIHN0cm9rZT0icmdiYSgwLDI0MCwyNTUsLjk2KSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KPHBhdGggZD0iTTI4IDEwIEwzMCA3IEwzMiAxMCBMMzUgOCBMMzMgMTEgTDM2IDEyIEwzMyAxMyBMMzUgMTYgTDMyIDE0IEwzMCAxNyBMMjggMTQgTDI1IDE2IEwyNyAxMyBMMjQgMTIgTDI3IDExIFoiCiAgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsMjIwLDI1NSwuNTUpIiBzdHJva2Utd2lkdGg9IjEuMiIvPgoKPC9nPgo8L3N2Zz4=" alt=""/></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-title">Пояснюємо вибір</div>
+          <div class="tl-desc">Простими словами пояснюємо різницю та допомагаємо обрати оптимальну модель.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px">
+    <a class="btn btn-blue" href="#cta">
+      <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg>Почати підбір
+    </a>
+  </div>
+</section>
+
+<section id="popular" class="section reveal">
+  <div class="section-tag"><span class="tag-dot"></span>Популярні рішення</div>
+  <h2>Моделі, які часто обирають <em>для дому та бізнесу</em></h2>
+  <p class="lead">Не хочете розбиратися самостійно? Залиште заявку — ми порадимо модель під ваше приміщення.</p>
+  <div class="popular-grid">
+    <div class="pop-card reveal">
+      <img class="pop-photo" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B0_005.webp" alt="до 20м²"/>
+      <div class="pop-body">
+        <span class="pop-badge">До 20 м²</span>
+        <div class="pop-title">Кондиціонер для невеликої кімнати</div>
+        <div class="pop-desc">Для спальні, дитячої або кабінету. Тихий, ефективний, економний.</div>
+        <a href="#cta" class="btn btn-outline btn-sm pop-btn">Підібрати →</a>
+      </div>
+    </div>
+    <div class="pop-card reveal">
+      <img class="pop-photo" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B2%D1%96%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_005.webp" alt="20-35м²"/>
+      <div class="pop-body">
+        <span class="pop-badge">20–35 м²</span>
+        <div class="pop-title">Кондиціонер для вітальні</div>
+        <div class="pop-desc">Для квартири-студії або просторої спальні. Потрібна потужність без зайвого.</div>
+        <a href="#cta" class="btn btn-outline btn-sm pop-btn">Підібрати →</a>
+      </div>
+    </div>
+    <div class="pop-card reveal">
+      <img class="pop-photo" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D0%B1%D1%96%D0%B3%D1%80%D1%96%D0%B2_005.webp" alt="з обігрівом"/>
+      <div class="pop-body">
+        <span class="pop-badge">З обігрівом</span>
+        <div class="pop-title">Кондиціонер з обігрівом</div>
+        <div class="pop-desc">Для тих, хто хоче використовувати кондиціонер не лише влітку.</div>
+        <a href="#cta" class="btn btn-outline btn-sm pop-btn">Підібрати →</a>
+      </div>
+    </div>
+    <div class="pop-card reveal">
+      <img class="pop-photo" src="https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D1%84%D1%96%D1%81_005.webp" alt="для бізнесу"/>
+      <div class="pop-body">
+        <span class="pop-badge">Для бізнесу</span>
+        <div class="pop-title">Кондиціонер для офісу або бізнесу</div>
+        <div class="pop-desc">Стабільна робота протягом дня для офісів, салонів і магазинів.</div>
+        <a href="#cta" class="btn btn-outline btn-sm pop-btn">Підібрати →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEAR — light style with numbers -->
+<section id="trust" class="section reveal">
+  <div class="section-tag"><span class="tag-dot"></span>Переваги</div>
+  <h2>Допоможемо не <em>помилитися з вибором</em></h2>
+  <p class="lead">Без консультації легко купити модель, що не підходить.<br>Ми це виключаємо.</p>
+  <div class="fear-grid">
+
+    <div class="fear-card reveal">
+      <div class="fear-card-top">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/>
+            <path d="M12 16 l-2.5-5"/>
+            <circle cx="12" cy="16" r="1.2" fill="var(--blue)" stroke="none"/>
+            <line x1="7" y1="7.5" x2="7.7" y2="8.2"/>
+            <line x1="17" y1="7.5" x2="16.3" y2="8.2"/>
+            <line x1="4.5" y1="12" x2="5.5" y2="12"/>
+            <line x1="18.5" y1="12" x2="19.5" y2="12"/>
+          </svg>
+        </div>
+        <span class="fear-num">01</span>
+      </div>
+      <div class="fear-title">Щоб кондиціонер не був слабким</div>
+      <div class="fear-desc">Врахуємо площу, висоту стелі, сонячну сторону та умови використання — підберемо потрібну потужність.</div>
+    </div>
+
+    <div class="fear-card reveal">
+      <div class="fear-card-top">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+            <path d="M18 12a2 2 0 0 0 0 4h4v-4z"/>
+          </svg>
+        </div>
+        <span class="fear-num">02</span>
+      </div>
+      <div class="fear-title">Щоб не переплатити за зайве</div>
+      <div class="fear-desc">Пояснимо, які функції дійсно потрібні, а які є необов'язковими для вашого випадку.</div>
+    </div>
+
+    <div class="fear-card reveal">
+      <div class="fear-card-top">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </div>
+        <span class="fear-num">03</span>
+      </div>
+      <div class="fear-title">Щоб не купити шумну модель</div>
+      <div class="fear-desc">Для спальні, дитячої або кабінету порадимо варіанти з тихою роботою та нічним режимом.</div>
+    </div>
+
+    <div class="fear-card reveal">
+      <div class="fear-card-top">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <span class="fear-num">04</span>
+      </div>
+      <div class="fear-title">Щоб не загубитися в характеристиках</div>
+      <div class="fear-desc">Пояснимо різницю між моделями звичайною мовою. Ніяких BTU і технічного жаргону.</div>
+    </div>
+
+    <div class="fear-card reveal">
+      <div class="fear-card-top">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span class="fear-num">05</span>
+      </div>
+      <div class="fear-title">Щоб монтаж не зіпсував результат</div>
+      <div class="fear-desc">Одразу врахуємо, де і як краще встановити кондиціонер, щоб не переробляти пізніше.</div>
+    </div>
+
+    <div class="fear-card reveal">
+      <div class="fear-card-top">
+        <div class="fear-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <span class="fear-num">06</span>
+      </div>
+      <div class="fear-title">Заявка не зобов'язує до покупки</div>
+      <div class="fear-desc">Це спосіб отримати зрозумілу рекомендацію — без тиску, нав'язування і агресивного продажу.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section reveal">
+  <div class="section-tag"><span class="tag-dot"></span>FAQ</div>
+  <h2>Питання, які виникають <em>перед покупкою</em></h2>
+  <p class="lead" style="margin-bottom:36px">Зібрали найчастіші запитання — відповідаємо просто й чесно.</p>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="tFaq(this)">Як зрозуміти, яка потужність кондиціонера мені потрібна?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Потрібно врахувати площу, висоту стелі, сонячну сторону, кількість людей і техніки. Загальне правило — 1 кВт на 10 м², але на практиці важливі деталі. Ми допоможемо розрахувати під ваш конкретний випадок.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tFaq(this)">Інверторний кондиціонер кращий за звичайний?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Інверторні моделі зазвичай тихіші, економніші та краще підтримують стабільну температуру. Але вибір залежить від бюджету і того, як часто ви будете ним користуватися. Ми допоможемо визначитися.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tFaq(this)">Чи можна використовувати кондиціонер для обігріву?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Так, багато сучасних моделей можуть працювати на обігрів у міжсезоння. Важливо дивитися, до якої температури на вулиці дозволена робота конкретної моделі — це суттєво відрізняється між брендами.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tFaq(this)">Скільки часу займає монтаж?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Зазвичай стандартне встановлення займає кілька годин. Точний час залежить від об'єкта, складності доступу та особливостей монтажу.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="tFaq(this)">Чи можна підібрати кондиціонер дистанційно?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Так. Ви можете надіслати площу кімнати, фото місця встановлення та побажання — ми підберемо варіанти онлайн і пояснимо все зрозумілою мовою.</div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text reveal">
+      <div class="section-tag"><span class="tag-dot"></span>Залишіть заявку</div>
+      <h2>Підібрати кондиціонер простіше, ніж здається</h2>
+      <p>Напишіть нам площу приміщення, бажаний бюджет і кілька побажань — ми запропонуємо моделі, які справді підходять саме вам. Без технічної плутанини і нав'язування.</p>
+    </div>
+    <div class="cta-form reveal">
+      <div class="form-title">Отримати підбір кондиціонера</div>
+      <div class="form-group"><label class="form-label">Ваше ім'я</label><input class="form-input" type="text" placeholder="Як вас звати?"/></div>
+      <div class="form-group"><label class="form-label">Телефон</label><input class="form-input" type="tel" placeholder="+38 (0__) ___ __ __"/></div>
+      <div class="form-group"><label class="form-label">Площа та місто</label><input class="form-input" type="text" placeholder="Наприклад: 25 м², Київ"/></div>
+      <div class="form-group"><label class="form-label">Побажання</label><input class="form-input" type="text" placeholder="Спальня, тихий, бюджет до 15 000 грн"/></div>
+      <button class="btn-submit">Отримати підбір кондиціонера →</button>
+      <div class="form-note">Консультація безкоштовна і не зобов'язує до покупки</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="#" style="color:var(--mid)">
+    <div class="logo-icon" style="background:var(--blue-mist);box-shadow:none">
+      <svg viewBox="0 0 24 24" style="stroke:var(--blue);width:18px;height:18px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="4.9" y2="19.1"/></svg>
+    </div>
+    Inter-Klimat
+  </a>
+  <div class="footer-copy">© 2025 Inter-Klimat. Підбір кондиціонерів в Україні.</div>
+  <div class="footer-links"><a href="#">Конфіденційність</a><a href="#">Умови</a><a href="#cta">Контакти</a></div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function tFaq(b){const i=b.closest('.faq-item');const a=i.querySelector('.faq-a');const o=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));if(!o){a.classList.add('open');b.classList.add('open');}}
+
+const heroBg=document.getElementById('heroBg');
+const pillImgs={"bedroom":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D1%81%D0%BF%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_001.webp","kids":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B0_001_003.webp","living":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B2%D1%96%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_001_003.webp","office":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D1%84%D1%96%D1%81_001_003.webp","heating":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D0%B1%D1%96%D0%B3%D1%80%D1%96%D0%B2_001_003.webp"};
+document.querySelectorAll('.hero-pill').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('.hero-pill').forEach(x=>x.classList.remove('on'));p.classList.add('on');const s=pillImgs[p.dataset.key];if(s){heroBg.style.opacity='0';heroBg.style.transition='opacity .4s';setTimeout(()=>{heroBg.src=s;heroBg.onload=()=>heroBg.style.opacity='1';heroBg.onerror=()=>heroBg.style.opacity='1';},220);}});});
+</script>
+</body>
+</html>
