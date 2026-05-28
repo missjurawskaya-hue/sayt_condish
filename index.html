@@ -329,7 +329,7 @@ footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(1
   border-top:1px solid var(--border);display:flex;align-items:center;
   justify-content:space-between;flex-wrap:wrap;gap:16px}
 .footer-copy{font-size:13px;color:var(--soft)}
-.footer-links{display:flex;gap:24px}
+.footer-links{display:flex;gap:28px}
 .footer-links a{font-size:13px;color:var(--soft);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--blue)}
 
@@ -826,6 +826,143 @@ footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(1
   #steps.visible .tl-step:nth-child(n) { transform: none !important; }
 }
 
+
+/* ── Marquee ticker ─────────────────────────────────── */
+.marquee-section {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 14px 0;
+  position: relative;
+  background: rgba(186,224,255,0.22);
+  border-top: 1px solid rgba(186,224,255,0.48);
+  border-bottom: 1px solid rgba(186,224,255,0.48);
+  box-shadow: 0 4px 18px rgba(0,90,200,.08),
+              inset 0 1px 0 rgba(255,255,255,.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-section::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(220,238,255,0.95), transparent);
+}
+.marquee-section::after {
+  right: 0;
+  background: linear-gradient(-90deg, rgba(220,238,255,0.95), transparent);
+}
+.marquee-viewport {
+  display: flex;
+  width: max-content;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  animation: marqueeRoll 55s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marqueeRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3A6A9A;
+  padding: 0 20px;
+  letter-spacing: .1px;
+  transition: color .2s;
+}
+.marquee-item:hover { color: var(--blue); }
+.marquee-item.brand {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  color: #5A8ABF;
+}
+.marquee-item.brand:hover { color: var(--blue); }
+.marquee-sep {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(0, 120, 220, 0.28);
+  flex-shrink: 0;
+  margin: 0 10px;
+}
+.marquee-sep.snow {
+  background: none;
+  font-size: 11px;
+  color: rgba(0, 130, 230, 0.45);
+  width: auto; height: auto;
+  border-radius: 0;
+  line-height: 1;
+}
+@media (max-width: 768px) {
+  .marquee-item { font-size: 12px; gap: 10px; }
+  .marquee-track { animation-duration: 38s; }
+  .marquee-section::before,
+  .marquee-section::after { width: 40px; }
+}
+
+
+/* ── Sequential steps animation ─────────────────────── */
+
+/* Override light duration → 6s linear for sync with JS */
+#steps.visible .tl-wrap::after {
+  animation: runLightH 6s linear 1.4s infinite !important;
+}
+@media (max-width:768px) {
+  #steps.visible .tl-wrap::after {
+    animation: runLightV 6s linear 1.4s infinite !important;
+  }
+}
+
+/* Pause on hover */
+.tl-wrap:hover::after { animation-play-state: paused !important; }
+
+/* Step ACTIVE state — triggered by JS */
+.tl-step.tl-active .tl-circle {
+  box-shadow:
+    0 0 0 5px rgba(0,200,255,.12),
+    0 0 22px rgba(0,185,255,.65),
+    0 0 44px rgba(0,150,255,.30),
+    inset 0 0 18px rgba(0,160,255,.22) !important;
+  border-color: rgba(0,215,255,.75) !important;
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+/* Number pulse */
+@keyframes tlNumPulse {
+  0%   { transform: scale(1);    background: var(--blue-mist); color: var(--blue); }
+  40%  { transform: scale(1.28); background: rgba(0,190,255,.22); color: #00CCFF;
+         border-color: rgba(0,200,255,.5); box-shadow: 0 0 8px rgba(0,200,255,.35); }
+  100% { transform: scale(1);    background: var(--blue-mist); color: var(--blue); }
+}
+.tl-step.tl-active .tl-num {
+  animation: tlNumPulse .75s ease forwards !important;
+}
+
+/* Slight icon brightness on active */
+.tl-step.tl-active .tl-circle img {
+  filter: drop-shadow(0 0 10px rgba(0,210,255,.85)) brightness(1.15) !important;
+  transition: filter .2s ease;
+}
+
 </style>
 </head>
 <body>
@@ -968,8 +1105,8 @@ footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(1
         </label>
         <select class="sel-select"><option>Тиха робота</option><option>Обігрів</option><option>Wi-Fi керування</option><option>Економне споживання</option><option>Бюджетне рішення</option></select>
       </div>
-      <a class="btn btn-blue" href="#cta" style="white-space:nowrap">
-        <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg>Показати моделі
+      <a class="btn btn-blue" href="#popular" style="white-space:nowrap">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg>Підібрати варіант
       </a>
     </div>
     <div class="sel-hint">
@@ -978,6 +1115,16 @@ footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(1
     </div>
   </div>
 </section>
+
+<!-- MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-viewport">
+    <div class="marquee-track">
+      <span class="marquee-item item">Для спальні</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Для дитячої</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Для офісу</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">До 20 м²</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item item">З обігрівом</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Тиха модель</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Під бюджет</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Без переплат</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item item">Для сонячної сторони</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Підбір серед популярних брендів</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Daikin</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Gree</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item brand">Midea</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Cooper&amp;Hunter</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Haier</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">LG</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item brand">Samsung</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Toshiba</span><span class="marquee-sep" aria-hidden="true"></span>
+      <span class="marquee-item item">Для спальні</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Для дитячої</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Для офісу</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">До 20 м²</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item item">З обігрівом</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Тиха модель</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Під бюджет</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item item">Без переплат</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item item">Для сонячної сторони</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Підбір серед популярних брендів</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Daikin</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Gree</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item brand">Midea</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Cooper&amp;Hunter</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Haier</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">LG</span><span class="marquee-sep snow" aria-hidden="true">❄</span><span class="marquee-item brand">Samsung</span><span class="marquee-sep" aria-hidden="true"></span><span class="marquee-item brand">Toshiba</span><span class="marquee-sep" aria-hidden="true"></span>
+    </div>
+  </div>
+</div>
 
 <!-- SCENARIOS — full width 3x2 grid -->
 <section id="scenarios" class="sc-full reveal">
@@ -1120,7 +1267,7 @@ footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(1
 
 <section id="popular" class="section reveal">
   <div class="section-tag"><span class="tag-dot"></span>Популярні рішення</div>
-  <h2>Моделі, які часто обирають <em>для дому та бізнесу</em></h2>
+  <h2>Для квартири, будинку, офісу чи кабінету — <em>рішення, які часто обирають</em></h2>
   <p class="lead">Не хочете розбиратися самостійно? Залиште заявку — ми порадимо модель під ваше приміщення.</p>
   <div class="popular-grid">
     <div class="pop-card reveal">
@@ -1304,7 +1451,7 @@ footer{padding:32px 56px;background:rgba(238,247,255,.55);backdrop-filter:blur(1
     </div>
     Inter-Klimat
   </a>
-  <div class="footer-copy">© 2025 Inter-Klimat. Підбір кондиціонерів в Україні.</div>
+  <div class="footer-copy">© Inter-Klimat</div>
   <div class="footer-links"><a href="#">Конфіденційність</a><a href="#">Умови</a><a href="#cta">Контакти</a></div>
 </footer>
 
@@ -1318,5 +1465,65 @@ const heroBg=document.getElementById('heroBg');
 const pillImgs={"bedroom":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D1%81%D0%BF%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_001.webp","kids":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B0_001_003.webp","living":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%B2%D1%96%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F_001_003.webp","office":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D1%84%D1%96%D1%81_001_003.webp","heating":"https://raw.githubusercontent.com/missjurawskaya-hue/sayt_condish/main/%D0%BE%D0%B1%D1%96%D0%B3%D1%80%D1%96%D0%B2_001_003.webp"};
 document.querySelectorAll('.hero-pill').forEach(p=>{p.addEventListener('click',()=>{document.querySelectorAll('.hero-pill').forEach(x=>x.classList.remove('on'));p.classList.add('on');const s=pillImgs[p.dataset.key];if(s){heroBg.style.opacity='0';heroBg.style.transition='opacity .4s';setTimeout(()=>{heroBg.src=s;heroBg.onload=()=>heroBg.style.opacity='1';heroBg.onerror=()=>heroBg.style.opacity='1';},220);}});});
 </script>
+
+<script>
+/* ── Sequential steps animation controller ── */
+(function(){
+  var CYCLE   = 6000;
+  var DELAYS  = [0, 2000, 4000, 5700];
+  var ACTIVE  = 750;
+  var INIT_DELAY = 1400;
+
+  var wrap  = document.querySelector('.tl-wrap');
+  var steps = document.querySelectorAll('.tl-step');
+  if (!wrap || !steps.length) return;
+
+  var paused    = false;
+  var mainTimer = null;
+  var pending   = [];
+
+  wrap.addEventListener('mouseenter', function(){ paused = true; });
+  wrap.addEventListener('mouseleave', function(){ paused = false; });
+
+  function activateStep(i) {
+    if (paused || !steps[i]) return;
+    steps[i].classList.add('tl-active');
+    setTimeout(function(){ if(steps[i]) steps[i].classList.remove('tl-active'); }, ACTIVE);
+  }
+
+  function runCycle() {
+    pending.forEach(clearTimeout);
+    pending = [];
+    DELAYS.forEach(function(d, i){
+      pending.push(setTimeout(function(){ activateStep(i); }, d));
+    });
+  }
+
+  function start() {
+    pending.push(setTimeout(function(){
+      runCycle();
+      mainTimer = setInterval(runCycle, CYCLE);
+    }, INIT_DELAY));
+  }
+
+  function stop() {
+    clearInterval(mainTimer);
+    pending.forEach(clearTimeout);
+    pending = [];
+    steps.forEach(function(s){ s.classList.remove('tl-active'); });
+  }
+
+  var section = document.getElementById('steps');
+  if (!section) return;
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) start(); else stop();
+    });
+  }, { threshold: 0.25 });
+  obs.observe(section);
+})();
+</script>
+
 </body>
 </html>
